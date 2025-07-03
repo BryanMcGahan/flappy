@@ -1,2 +1,2 @@
 export * from './drawable';
-export * from './world';
+export * from './render';

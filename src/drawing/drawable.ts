@@ -1,6 +1,4 @@
 interface Drawable {
-  x: number;
-  y: number;
   draw(ctx: CanvasRenderingContext2D): void;
 }
 
@@ -82,6 +80,18 @@ class Rectangle extends Shape {
   draw(ctx: CanvasRenderingContext2D): void {
     ctx.fillStyle = this.color;
     ctx.fillRect(this.x, this.y, this.width, this.height);
+  }
+
+  update(
+    callback: (
+      x: number,
+      y: number,
+      width: number,
+      height: number,
+      color: string,
+    ) => void,
+  ): void {
+    callback(this.x, this.y, this.width, this.height, this.color);
   }
 }
 

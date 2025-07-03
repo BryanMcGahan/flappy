@@ -1,4 +1,5 @@
-import { World } from './drawing';
+import { Renderer } from './drawing';
+import Game from './game/game';
 import './style.css';
 
 /**
@@ -7,15 +8,12 @@ import './style.css';
  * - Going to need an 'endless' list of pipes
  **/
 
-const world: World = new World(
-  'game-canvas',
-  window.innerWidth,
-  window.innerHeight,
+const renderer: Renderer = new Renderer(
+    'game-canvas',
+    window.innerWidth,
+    window.innerHeight
 );
 
-world.draw();
+const game: Game = new Game(renderer);
 
-window.addEventListener('resize', () => {
-  world.resizeCanvas(window.innerWidth, window.innerHeight);
-  world.draw();
-});
+game.start();
